@@ -5,13 +5,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.jdqm.ndktutorials.jni.JNIBasicTypes;
+import com.jdqm.ndktutorials.jni.JNIDynamicLoad;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
-        System.loadLibrary("base-lib");
     }
 
     @Override
@@ -30,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
         JNIDynamicLoad dynamicLoad = new JNIDynamicLoad();
         Log.d(TAG, "getNativeString: " + dynamicLoad.getNativeString());
         Log.d(TAG, "1+2= " + dynamicLoad.sum(1, 2));
+
+        //基本数据类型
+        JNIBasicTypes jniBasicTypes = new JNIBasicTypes();
+        jniBasicTypes.callNativeInt(10);
+        jniBasicTypes.callNativeBoolean(false);
     }
 
     /**

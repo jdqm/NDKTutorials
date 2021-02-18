@@ -1,4 +1,4 @@
-package com.jdqm.ndktutorials;
+package com.jdqm.ndktutorials.jni;
 
 public class JNIDynamicLoad {
     static {

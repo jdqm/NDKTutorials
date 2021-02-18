@@ -15,6 +15,10 @@ jint plus(JNIEnv *env, jobject job, int x, int y) {
     return x + y;
 }
 
+/**
+ * Java层的getNativeString()与native层的getMessage()绑定
+ * Java层的sum()与native层的plus()绑定
+ */
 static JNINativeMethod gMethods[] = {
         {"getNativeString", "()Ljava/lang/String;", (void *) getMessage},
         {"sum",             "(II)I",                (void *) plus},
@@ -40,7 +44,7 @@ JNIEXPORT int JNICALL JNI_OnLoad (JavaVM *vm , void *reserved) {
     if (vm->GetEnv(reinterpret_cast<void **>(&env), JNI_VERSION_1_6) != JNI_OK) {
         return JNI_FALSE;
     }
-    registerNativeMethods(env, "com/jdqm/ndktutorials/JNIDynamicLoad", gMethods, sizeof(gMethods) / sizeof(gMethods[0]));
+    registerNativeMethods(env, "com/jdqm/ndktutorials/jni/JNIDynamicLoad", gMethods, sizeof(gMethods) / sizeof(gMethods[0]));
 
     LOGD("jni onLoad call");
     return JNI_VERSION_1_6;
