@@ -1,8 +1,6 @@
 package com.jdqm.ndktutorials;
 
-import
-        androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -13,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
+        System.loadLibrary("base-lib");
     }
 
     @Override
@@ -26,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
 
         callJavaMethod();
         callJavaStaticMethod();
+
+        //动态注册native方法
+        JNIDynamicLoad dynamicLoad = new JNIDynamicLoad();
+        Log.d(TAG, "getNativeString: " + dynamicLoad.getNativeString());
+        Log.d(TAG, "1+2= " + dynamicLoad.sum(1, 2));
     }
 
     /**
