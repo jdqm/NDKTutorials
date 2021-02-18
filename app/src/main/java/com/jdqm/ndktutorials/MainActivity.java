@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.jdqm.ndktutorials.jni.JNIBasicTypes;
 import com.jdqm.ndktutorials.jni.JNIDynamicLoad;
+import com.jdqm.ndktutorials.jni.JNIReference;
 import com.jdqm.ndktutorials.jni.JNIString;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
         //jstring
         JNIString jniString = new JNIString();
         jniString.reverseString("Hello str");
+
+        JNIReference jniReference = new JNIReference();
+        jniReference.invoke();
+
+
     }
 
     /**
