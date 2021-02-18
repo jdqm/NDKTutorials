@@ -23,6 +23,7 @@ add_library( # Sets the name of the library.
              # Provides a relative path to your source file(s).
              native-lib.cpp
              jni/jni_dynamic_load.cpp
+             jni/jni_string.cpp
              jni/jni_basic_types.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a

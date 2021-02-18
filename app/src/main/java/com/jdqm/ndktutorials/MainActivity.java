@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.jdqm.ndktutorials.jni.JNIBasicTypes;
 import com.jdqm.ndktutorials.jni.JNIDynamicLoad;
+import com.jdqm.ndktutorials.jni.JNIString;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -37,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         JNIBasicTypes jniBasicTypes = new JNIBasicTypes();
         jniBasicTypes.callNativeInt(10);
         jniBasicTypes.callNativeBoolean(false);
+
+        //jstring
+        JNIString jniString = new JNIString();
+        jniString.reverseString("Hello str");
     }
 
     /**
