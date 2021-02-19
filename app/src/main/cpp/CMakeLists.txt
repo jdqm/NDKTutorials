@@ -29,6 +29,7 @@ add_library( # Sets the name of the library.
              jni/jni_access_field.cpp
              jni/jni_invoke_method.cpp
              jni/jni_reference_type.cpp
+             jni/jni_exception.cpp
         )
 
 # Searches for a specified prebuilt library and stores the path as a

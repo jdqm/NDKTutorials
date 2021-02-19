@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.jdqm.ndktutorials.jni.JNIAccessField;
 import com.jdqm.ndktutorials.jni.JNIBasicTypes;
 import com.jdqm.ndktutorials.jni.JNIDynamicLoad;
+import com.jdqm.ndktutorials.jni.JNIException;
 import com.jdqm.ndktutorials.jni.JNIInvokeMethod;
 import com.jdqm.ndktutorials.jni.JNIReference;
 import com.jdqm.ndktutorials.jni.JNIString;
@@ -70,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "callback: " + Thread.currentThread().getName());
             }
         });
+
+        //异常处理
+        JNIException jniException = new JNIException();
+        jniException.invoke();
     }
 
     /**
