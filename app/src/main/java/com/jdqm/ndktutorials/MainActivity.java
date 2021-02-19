@@ -8,8 +8,11 @@ import android.widget.TextView;
 import com.jdqm.ndktutorials.jni.JNIAccessField;
 import com.jdqm.ndktutorials.jni.JNIBasicTypes;
 import com.jdqm.ndktutorials.jni.JNIDynamicLoad;
+import com.jdqm.ndktutorials.jni.JNIInvokeMethod;
 import com.jdqm.ndktutorials.jni.JNIReference;
 import com.jdqm.ndktutorials.jni.JNIString;
+import com.jdqm.ndktutorials.thread.ICallbackMethod;
+import com.jdqm.ndktutorials.thread.IThreadCallback;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -53,6 +56,20 @@ public class MainActivity extends AppCompatActivity {
         JNIAccessField accessField = new JNIAccessField();
         accessField.invoke();
 
+        //回调，包括子线程回调
+        JNIInvokeMethod jniInvokeMethod = new JNIInvokeMethod();
+        jniInvokeMethod.nativeCallback(new ICallbackMethod() {
+            @Override
+            public void callback() {
+                Log.d(TAG, "callback: " + Thread.currentThread().getName());
+            }
+        });
+        jniInvokeMethod.nativeThreadCallback(new IThreadCallback() {
+            @Override
+            public void callback() {
+                Log.d(TAG, "callback: " + Thread.currentThread().getName());
+            }
+        });
     }
 
     /**

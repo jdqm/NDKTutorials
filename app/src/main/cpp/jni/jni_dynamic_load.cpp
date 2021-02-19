@@ -40,6 +40,8 @@ int registerNativeMethods(JNIEnv *env, const char *name,
 }
 
 JNIEXPORT int JNICALL JNI_OnLoad (JavaVM *vm , void *reserved) {
+    setJvm(vm);
+
     JNIEnv *env;
     if (vm->GetEnv(reinterpret_cast<void **>(&env), JNI_VERSION_1_6) != JNI_OK) {
         return JNI_FALSE;
