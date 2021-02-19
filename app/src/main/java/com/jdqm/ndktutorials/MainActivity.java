@@ -10,9 +10,11 @@ import com.jdqm.ndktutorials.jni.JNIBasicTypes;
 import com.jdqm.ndktutorials.jni.JNIDynamicLoad;
 import com.jdqm.ndktutorials.jni.JNIException;
 import com.jdqm.ndktutorials.jni.JNIInvokeMethod;
+import com.jdqm.ndktutorials.jni.JNIProductAndConsumerThread;
 import com.jdqm.ndktutorials.jni.JNIReference;
 import com.jdqm.ndktutorials.jni.JNIString;
 import com.jdqm.ndktutorials.jni.JNIThread;
+import com.jdqm.ndktutorials.jni.JNIWaitNotify;
 import com.jdqm.ndktutorials.thread.ICallbackMethod;
 import com.jdqm.ndktutorials.thread.IThreadCallback;
 
@@ -80,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
         //线程创建
         JNIThread jniThread = new JNIThread();
         jniThread.invoke();
+
+//        JNIProductAndConsumerThread productAndConsumerThread = new JNIProductAndConsumerThread();
+//        productAndConsumerThread.invoke();
+
     }
 
     /**
