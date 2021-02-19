@@ -12,6 +12,7 @@ import com.jdqm.ndktutorials.jni.JNIException;
 import com.jdqm.ndktutorials.jni.JNIInvokeMethod;
 import com.jdqm.ndktutorials.jni.JNIReference;
 import com.jdqm.ndktutorials.jni.JNIString;
+import com.jdqm.ndktutorials.jni.JNIThread;
 import com.jdqm.ndktutorials.thread.ICallbackMethod;
 import com.jdqm.ndktutorials.thread.IThreadCallback;
 
@@ -75,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
         //异常处理
         JNIException jniException = new JNIException();
         jniException.invoke();
+
+        //线程创建
+        JNIThread jniThread = new JNIThread();
+        jniThread.invoke();
     }
 
     /**
