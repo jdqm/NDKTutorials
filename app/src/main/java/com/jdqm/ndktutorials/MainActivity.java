@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.jdqm.ndktutorials.jni.JNIAccessField;
 import com.jdqm.ndktutorials.jni.JNIBasicTypes;
 import com.jdqm.ndktutorials.jni.JNIDynamicLoad;
 import com.jdqm.ndktutorials.jni.JNIReference;
@@ -44,9 +45,13 @@ public class MainActivity extends AppCompatActivity {
         JNIString jniString = new JNIString();
         jniString.reverseString("Hello str");
 
+        //引用
         JNIReference jniReference = new JNIReference();
         jniReference.invoke();
 
+        //访问类字段
+        JNIAccessField accessField = new JNIAccessField();
+        accessField.invoke();
 
     }
 
