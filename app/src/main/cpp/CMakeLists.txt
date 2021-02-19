@@ -33,7 +33,7 @@ add_library( # Sets the name of the library.
              jni/jni_thread.cpp
              jni/jni_wait_notify.cpp
              jni/jni_product_and_consumer_thread.cpp
-        )
+             jni/jni_bitmap.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -63,6 +63,7 @@ add_library(
 target_link_libraries( # Specifies the target library.
                        native-lib
                        base-lib
+                       jnigraphics
                        # Links the target library to the log library
                        # included in the NDK.
                        ${log-lib} )

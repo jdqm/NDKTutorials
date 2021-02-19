@@ -1,12 +1,18 @@
 package com.jdqm.ndktutorials;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jdqm.ndktutorials.jni.JNIAccessField;
 import com.jdqm.ndktutorials.jni.JNIBasicTypes;
+import com.jdqm.ndktutorials.jni.JNIBitmap;
 import com.jdqm.ndktutorials.jni.JNIDynamicLoad;
 import com.jdqm.ndktutorials.jni.JNIException;
 import com.jdqm.ndktutorials.jni.JNIInvokeMethod;
@@ -85,6 +91,18 @@ public class MainActivity extends AppCompatActivity {
 
 //        JNIProductAndConsumerThread productAndConsumerThread = new JNIProductAndConsumerThread();
 //        productAndConsumerThread.invoke();
+
+        //bitMap的操作
+        final ImageView sampleIv = findViewById(R.id.sample_iv);
+        final Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.mipmap.mirror);
+        final JNIBitmap jniBitmap= new JNIBitmap();
+        sampleIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bitmap result= jniBitmap.callNativeMirrorBitmap(bitmap);
+                sampleIv.setImageBitmap(result);
+            }
+        });
 
     }
 
